@@ -1,0 +1,112 @@
+/* mudancas do gpt */
+
+
+#app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px; /* Define um limite de largura */
+    margin: auto;
+    padding: 20px;
+}
+
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    border-bottom: 2px solid #ddd;
+    min-width: 400px;
+}
+
+#header h2 {
+    margin: 0 auto;
+    text-align: center;
+    flex-grow: 1;
+}
+
+
+
+
+
+/*  */
+
+#header button {
+    padding: .5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+#workouts {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 5rem;
+}
+
+#workouts a {
+    text-decoration: none;
+}
+
+.workout {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    border: 1px solid #ddd;
+    padding: 0 4rem;
+    border-radius: 3px;
+    text-align: center;
+    height: 120px;
+}
+
+#workouts.disable {
+    display: none;
+}
+
+#add-workout {
+    margin-top: 2rem;
+}
+
+#form-input {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    gap: 1rem;
+}
+
+#form-input input {
+    width: 100%;
+    padding: .5rem;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #000;
+}
+
+#form-input button{
+    padding: .5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    cursor: pointer;
+    width: 100%;
+}
+
+
+
+
+
+
+

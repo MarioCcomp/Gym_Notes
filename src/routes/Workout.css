@@ -1,0 +1,86 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+#header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#header button {
+    padding: .5rem 1rem;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
+#exercises {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#add-exercise {
+    margin-top: 2rem;
+}
+
+.bi {
+    cursor: pointer;
+}
+
+.active {
+    display: none;
+}
+
+.series {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.series input,
+.series button,
+#end-btn {
+    padding: .5rem;
+    width: 100px;
+    margin-right: 5px;
+    color: #0f0f0f;
+    border-radius: 5px;
+}
+
+.series button {
+    background-color: #2e69b6;
+    color: #fff;
+    cursor: pointer;
+    opacity: .8;
+}
+
+.series button:hover {
+    opacity: 1;
+}
+
+#end-btn {
+    width: 200px;
+    margin: 1rem auto;
+    margin-bottom: 10rem;
+    background-color: #2e69b6;
+    color: #fff;
+    cursor: pointer;
+    opacity: .8;
+}
+
+#end-btn:hover {
+    opacity: 1;
+}
+
+#set-header {
+    display: flex;
+    justify-content: space-between;
+}

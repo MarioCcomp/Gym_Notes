@@ -1,0 +1,93 @@
+{
+  "workouts": [
+    {
+      "title": "Chest",
+      "exercises": [
+        {
+          "name": "Bench Press",
+          "sets": 4,
+          "reps": "8-12",
+          "workoutData": [
+            {
+              "date": "2025-03-15",
+              "sets": [
+                {
+                  "carga": "1231",
+                  "reps": "1231",
+                  "rir": "1223"
+                },
+                {
+                  "carga": "1231",
+                  "reps": "1231",
+                  "rir": "1231"
+                },
+                {
+                  "carga": "12",
+                  "reps": "24",
+                  "rir": "2"
+                },
+                {
+                  "carga": "421",
+                  "reps": "312",
+                  "rir": "12341"
+                }
+              ]
+            }    
+          ]
+        },
+        {
+          "name": "Incline Bench Press",
+          "sets": 4,
+          "reps": "8-12",
+          "workoutData": [
+            {
+              "date": "2025-03-15",
+              "sets": []
+            },
+            {
+              "date": "2025-03-15",
+              "sets": []
+            }
+          ]
+        },
+        {
+          "name": "Decline Bench Press",
+          "sets": 4,
+          "reps": "8-12",
+          "workoutData": [
+            {
+              "date": "2025-03-15",
+              "sets": []
+            },
+            {
+              "date": "2025-03-15",
+              "sets": []
+            }
+          ]
+        }
+      ],
+      "id": 1
+    },
+    {
+      "title": "Back",
+      "exercises": [
+        {
+          "name": "Deadlift",
+          "sets": 4,
+          "reps": "8-12"
+        },
+        {
+          "name": "Pull Ups",
+          "sets": 4,
+          "reps": "8-12"
+        },
+        {
+          "name": "Bent Over Rows",
+          "sets": 4,
+          "reps": "8-12"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}

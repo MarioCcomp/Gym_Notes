@@ -1,0 +1,114 @@
+button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  button:hover {
+    border-color: #646cff;
+  }
+  button:focus,
+  button:focus-visible {
+    outline: 4px auto -webkit-focus-ring-color;
+  }
+
+#options {
+    display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 3 colunas */
+  gap: 1rem; /* Espaçamento entre os botões */
+  justify-items: center; /* Centraliza os botões */
+  }
+  
+  #options button {
+    width: 200px;
+    margin: .4rem auto;
+  }
+
+  #header {
+    margin-bottom: 3rem;
+  }
+
+  #muscles-exercises {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 1rem; /* Espaçamento entre os botões */
+   justify-items: center; /* Centraliza os botões */
+    width: 100vw;
+  }
+
+
+
+  #eachExercise {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin: 2rem 3rem
+  }
+
+  #search {
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #search h2 {
+    margin-top: 3rem;
+    text-align: center;
+   
+  }
+  
+  .exercise_selected {
+    background-color: #2e69b6;
+    color: #fff;
+    cursor: pointer;
+    opacity: .8;
+  }
+  
+
+  #page {
+    display: flex;
+    justify-content: center;
+  }
+
+  #page button {
+    margin: 1rem;
+  }
+
+  #search-header {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #search-header button {
+    align-self:self-end;
+    margin-right: 1rem;
+    background-color: #2e69b6;
+    opacity: .8;
+    transition: .3s;
+  }
+
+  #search-header button:hover {
+    opacity: 1;
+  }
+
+  #search-header p {
+    align-self: self-end;
+    margin-right: 1rem;
+    background-color: rgb(161, 25, 25);
+    padding: .5rem;
+  }
+
+  #form-input label{
+    align-self: self-start;
+  }
+
+
+  

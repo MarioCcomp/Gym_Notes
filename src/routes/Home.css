@@ -1,0 +1,47 @@
+* {
+    color: #fdfdfd;
+}
+
+#header {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    align-items: center;
+}
+
+#header img {
+    width: 80px;
+    height: 80px;
+}
+
+#header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+#header p {
+    text-align: center;
+    font-size: 1.5rem;
+
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4rem;
+    gap: 4rem;
+}
+
+#main-container a {
+    text-decoration: none;
+}
+
+.options {
+    width: 150px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    padding: 1rem 4rem;
+    text-align: center;
+}
