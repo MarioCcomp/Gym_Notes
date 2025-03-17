@@ -9,7 +9,6 @@ import { ExerciseContextProvider } from './context/ExerciseContext.jsx'
 import Home from './routes/Home.jsx'
 import Workouts from './routes/Workouts.jsx'
 import Workout from './routes/Workout.jsx'
-import TestRoute from './routes/TestRoute.jsx'
 
 
 const router = createBrowserRouter([
@@ -27,10 +26,6 @@ const router = createBrowserRouter([
   {
     path: "/workout/:id",
     element: <Workout />,
-  },
-  {
-    path: "/test",
-    element: <TestRoute />,
   }
 ]
   }
