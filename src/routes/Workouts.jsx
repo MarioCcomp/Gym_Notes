@@ -5,6 +5,9 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';	
 
+import WorkoutClass from '../models/WorkoutClass';
+import Exercise from '../models/Exercise';
+
 import './Workouts.css'
 
 const Workouts = () => {
@@ -14,7 +17,7 @@ const Workouts = () => {
         const [adding, setAdding] = useState(false);
 
         const [exerciseList, setExerciseList] = useState([]);
-        const [exercise, setExercise] = useState({name: "", sets: "", reps: ""});
+        const [exercise, setExercise] = useState(new Exercise("", 0, 0));
         const [title, setTitle] = useState("");
 
 
@@ -24,7 +27,7 @@ const Workouts = () => {
         useEffect(() => {
             // Recuperar os treinos do localStorage
             const storedWorkouts = JSON.parse(localStorage.getItem('workouts')) || [];
-            setWorkoutList(storedWorkouts);
+            setWorkoutList(storedWorkouts.map(workout => new WorkoutClass(workout.id, workout.title, workout.exercises.map((ex) => new Exercise(ex.name, ex.sets, ex.reps, ex.workoutData, ex.gifUrl)))));
         }, []);
 
         // useEffect(() => {
@@ -42,16 +45,13 @@ const Workouts = () => {
         const handleBtn = (e) => {
             e.preventDefault();
             setExerciseList([...exerciseList, exercise]);
+            setExercise(new Exercise("", 0, 0));
         }
         
         const handleSubmit = (e) => {
             e.preventDefault();
             setAdding(false);
-            const newWorkout = {
-                title: title,
-                exercises: exerciseList,
-                id: workoutList.length + 1
-            }
+            const newWorkout = new WorkoutClass(workoutList.length + 1, title, exerciseList);
 
             // httpConfig(newWorkout, "POST");
 
@@ -60,7 +60,8 @@ const Workouts = () => {
             const updatedWorkouts = [...workoutList, newWorkout];
 
                // Atualizar o estado
-             setWorkoutList(updatedWorkouts); localStorage.setItem('workouts', JSON.stringify(updatedWorkouts));
+             setWorkoutList(updatedWorkouts); 
+             localStorage.setItem('workouts', JSON.stringify(updatedWorkouts));
 
             
         }
@@ -88,9 +89,9 @@ const Workouts = () => {
        {adding && <div id="add-workout">
             <form id='form-input'>
                 <input type="text" placeholder="Título do Treino" onChange={(e) => setTitle(e.target.value)} />
-                 <input type="text" placeholder="Nome do Exercício" onChange={(e) => setExercise({...exercise, name:e.target.value})} />
-                 <input type="text" placeholder="Séries"  onChange={(e) => setExercise({...exercise, sets:parseInt(e.target.value) || 0})}/>
-                 <input type="text" placeholder="Repetições" onChange={(e) => setExercise({...exercise, reps:e.target.value})}/>
+                 <input type="text" placeholder="Nome do Exercício" onChange={(e) => setExercise(new Exercise(e.target.value, exercise.sets, exercise.reps))} />
+                 <input type="text" placeholder="Séries"  onChange={(e) => setExercise(new Exercise(exercise.name, parseInt(e.target.value) || 0, exercise.reps)) || 0}/>
+                 <input type="text" placeholder="Repetições" onChange={(e) => setExercise(new Exercise(exercise.name, exercise.sets, parseInt(e.target.value) || 0))}/>
                  <button onClick={handleBtn}>Adicionar Exercício</button>
                
                 {exerciseList.length ? exerciseList.map((exercise) => (
