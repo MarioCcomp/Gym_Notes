@@ -84,3 +84,68 @@
     display: flex;
     justify-content: space-between;
 }
+
+
+#ask {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#ask p {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+
+#option-btn {
+    display: flex;
+    gap: 1rem;
+}
+
+#option-btn button{
+    background-color: #2e69b6;
+    opacity: .8;
+}
+
+#option-btn button:hover {
+    opacity: 1;
+}
+
+/* #form-input input[type="file"] {
+    
+} */
+
+
+.custom-file-upload {
+    padding: 10px 20px;
+    background-color: #2e69b6;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: .3s;
+    opacity: .8;
+  }
+  
+
+  .custom-file-upload:hover {
+    opacity: 1;
+  }
+  
+  .custom-file-upload input[type="file"] {
+    display: none;
+  }
+  
+
+  .image-preview {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+  }
+
+
+  
