@@ -6,6 +6,7 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 
 import {createBrowserRouter, RouterProvider, Route, Navigate } from "react-router-dom";
 import { ExerciseContextProvider } from './context/ExerciseContext.jsx'
+import { TranslateContextProvider } from './context/TranslateContext.jsx'
 import Home from './routes/Home.jsx'
 import Workouts from './routes/Workouts.jsx'
 import Workout from './routes/Workout.jsx'
@@ -34,7 +35,9 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ExerciseContextProvider>
+      <TranslateContextProvider>
     <RouterProvider router={router} />
+    </TranslateContextProvider>
     </ExerciseContextProvider>
   </StrictMode>,
 )
