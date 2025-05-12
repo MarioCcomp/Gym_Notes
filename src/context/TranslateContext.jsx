@@ -5,11 +5,10 @@ export const TranslateContext = createContext();
 // criando o provider
 
 export const TranslateContextProvider = ({children}) => {
-    const [text, setText] = useState("");
-    const [translatedText, setTranslatedText] = useState("");
+    const [translatedText, setTranslatedText] = useState([]);
 
     return (
-        <TranslateContext.Provider value = {{text, setText, translatedText, setTranslatedText}}>
+        <TranslateContext.Provider value = {{translatedText, setTranslatedText}}>
             {children}
             </TranslateContext.Provider>
 
