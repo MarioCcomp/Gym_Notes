@@ -167,18 +167,10 @@ const GymApi = () => {
                 
               }
               setTranslatedMuscles(translated);
-              localStorage.setItem('translatedMuscles', JSON.stringify(translated));
             }
 
             useEffect(() => {
-
-              const cached = localStorage.getItem('translatedMuscles');
-
-              if(cached) {
-                setTranslatedMuscles(JSON.parse(cached))
-              }
-
-              else if (targetMuscles && targetMuscles.length > 0) {
+              if (targetMuscles && targetMuscles.length > 0) {
                   translateAllMuscles();
               }
           }, [targetMuscles]);
