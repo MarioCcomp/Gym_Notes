@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react'
 import { useFetch } from '../hooks/useFetch'
 import { useExerciseContext } from '../hooks/useExerciseContext'
 import { useTranslateContext } from '../hooks/useTranslateContext';
-import TranslateMuscles from './TranslateMuscles';
 
 import Exercise from '../models/Exercise'
 
@@ -92,99 +91,97 @@ const GymApi = () => {
 
 
         // Traducao
-        const {translatedText, setTranslatedText} = useTranslateContext();
 
         
-        // coloque translatedMuscles como um contexto, e faca um componente separado para traduzir
        
 
 
-        // const {translatedText, setTranslatedText} = useTranslateContext();
-        //     const [sourceLang, setSourceLang] = useState("en");
-        //     const [targetLang, setTargetLang] = useState("pt");
-        //     const [translatedMuscles, setTranslatedMuscles] = useState([]);
+        const {text, setText, translatedText, setTranslatedText} = useTranslateContext();
+            const [sourceLang, setSourceLang] = useState("en");
+            const [targetLang, setTargetLang] = useState("pt");
+            const [translatedMuscles, setTranslatedMuscles] = useState([]);
         
-        //     const handleTranslate = async () => {
-        //         const apiUrl = "https://655.mtis.workers.dev/translate";
-        //         const params = new URLSearchParams({
-        //             text: text,
-        //             source_lang: sourceLang,
-        //             target_lang: targetLang,
-        //         });
+            const handleTranslate = async () => {
+                const apiUrl = "https://655.mtis.workers.dev/translate";
+                const params = new URLSearchParams({
+                    text: text,
+                    source_lang: sourceLang,
+                    target_lang: targetLang,
+                });
         
-        //         const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`${apiUrl}?${params}`)}`;
+                const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`${apiUrl}?${params}`)}`;
         
-        //         const response = await fetch(proxyUrl);
+                const response = await fetch(proxyUrl);
         
-        //         if(response.ok) {
-        //             const data = await response.json();
-        //             console.log(data);
-        //             const translated = JSON.parse(data.contents);
-        //             console.log(translated.response.translated_text);
-        //             setTranslatedText(translated.response.translated_text);
-        //             return translated.response.translated_text;
-        //         }
-        //     }
+                if(response.ok) {
+                    const data = await response.json();
+                    console.log(data);
+                    const translated = JSON.parse(data.contents);
+                    console.log(translated.response.translated_text);
+                    setTranslatedText(translated.response.translated_text);
+                    return translated.response.translated_text;
+                }
+            }
 
-        //     const translateText = async (textToTranslate) => {
-        //       const apiUrl = "https://655.mtis.workers.dev/translate";
-        //       const params = new URLSearchParams({
-        //           text: textToTranslate,
-        //           source_lang: sourceLang,
-        //           target_lang: targetLang,
-        //       });
+            const translateText = async (textToTranslate) => {
+              const apiUrl = "https://655.mtis.workers.dev/translate";
+              const params = new URLSearchParams({
+                  text: textToTranslate,
+                  source_lang: sourceLang,
+                  target_lang: targetLang,
+              });
       
-        //       const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`${apiUrl}?${params}`)}`;
+              const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(`${apiUrl}?${params}`)}`;
       
-        //       try {
-        //           const response = await fetch(proxyUrl);
+              try {
+                  const response = await fetch(proxyUrl);
       
-        //           if (response.ok) {
-        //               const data = await response.json();
-        //               const translated = JSON.parse(data.contents);
-        //               return translated.response.translated_text; // Retorna a tradução
+                  if (response.ok) {
+                      const data = await response.json();
+                      const translated = JSON.parse(data.contents);
+                      return translated.response.translated_text; // Retorna a tradução
             
-        //           } else {
-        //               console.error("Erro na requisição:", response.status);
-        //               return null;
-        //           }
-        //       } catch (error) {
-        //           console.error("Erro ao conectar à API:", error);
-        //           return null;
-        //       }
-        //   };
+                  } else {
+                      console.error("Erro na requisição:", response.status);
+                      return null;
+                  }
+              } catch (error) {
+                  console.error("Erro ao conectar à API:", error);
+                  return null;
+              }
+          };
 
             
 
-        //     const translateAllMuscles = async() => {
-        //       if(!targetMuscles || targetMuscles.length === 0) return;
+            const translateAllMuscles = async() => {
+              if(!targetMuscles || targetMuscles.length === 0) return;
 
-        //       const translated = []
+              const translated = []
 
-        //       for(const muscle of targetMuscles) {
+              for(const muscle of targetMuscles) {
         
-        //         const translatedName = await translateText(muscle);
-        //         translated.push({originalName: muscle, translatedName});
-        //         await new Promise((resolve) => setTimeout(resolve, 500));
+                const translatedName = await translateText(muscle);
+                translated.push({originalName: muscle, translatedName});
+                await new Promise((resolve) => setTimeout(resolve, 500));
                 
                 
-        //       }
-        //       setTranslatedMuscles(translated);
-        //       localStorage.setItem('translatedMuscles', JSON.stringify(translated));
-        //     }
+              }
+              setTranslatedMuscles(translated);
+              localStorage.setItem('translatedMuscles', JSON.stringify(translated));
+            }
 
-        //     useEffect(() => {
+            useEffect(() => {
 
-        //       const cached = localStorage.getItem('translatedMuscles');
+              const cached = localStorage.getItem('translatedMuscles');
 
-        //       if(cached) {
-        //         setTranslatedMuscles(JSON.parse(cached))
-        //       }
+              if(cached) {
+                setTranslatedMuscles(JSON.parse(cached))
+              }
 
-        //       else if (targetMuscles && targetMuscles.length > 0) {
-        //           translateAllMuscles();
-        //       }
-        //   }, [targetMuscles]);
+              else if (targetMuscles && targetMuscles.length > 0) {
+                  translateAllMuscles();
+              }
+          }, [targetMuscles]);
 
              
         
@@ -205,13 +202,12 @@ const GymApi = () => {
 
   return (
     <div>
-      <TranslateMuscles />
         {!isSelected && <div id="header">
             <h2>Select a muscle</h2>
         </div>}
         {!isSelected && <div id="options">  
-          {console.log(translatedText)}
-        {translatedText.map((item, index) => (
+          {console.log(translatedMuscles)}
+        {translatedMuscles.map((item, index) => (
             <button key={index} onClick={() => handleClick(item.originalName)}>{item.translatedName || item.originalName}</button>
             
           ))}
@@ -254,7 +250,7 @@ const GymApi = () => {
           <div id="showing-exercise">
             <img src={muscleSearch[exerciseSelected].gifUrl} alt="exercise" />
             {setText(muscleSearch[exerciseSelected].name)}
-            <h3>{muscleSearch[exerciseSelected].name}</h3>
+            <h3>{translatedText}</h3>
             
             <form id='form-input'>
                  <label>Séries</label>
