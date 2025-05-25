@@ -1,4 +1,4 @@
-# Gym Notes
+# Gym Notes Project
 
 ![Image](https://m.media-amazon.com/images/I/51yUeZCS8FL._AC_UF1000,1000_QL80_.jpg)
 
